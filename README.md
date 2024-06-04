@@ -95,3 +95,7 @@ This technology stack provides a solid foundation for developing a dynamic and e
    Register a user account, input your preferences, skills, and career goals to receive personalized job recommendations. Explore the career guidance features, such as resume building resources and interview preparation tips.
 
 By following these steps, users should be able to clone, install dependencies, set up the database, run the application, and interact with the career guidance and job recommendation system from your GitHub repository. Be sure to provide any additional setup instructions specific to your project in the readme file to assist users in successfully running the system on their local environment.  
+
+# Contact
+   Email    - vigneshpandiya21@gmail.com
+   linkedIn - https://www.linkedin.com/in/vignesh-pandiya-099b30296/
