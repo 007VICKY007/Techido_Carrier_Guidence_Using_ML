@@ -1,101 +1,345 @@
-# Techido_Carrier_Guidence_Using_ML
- The paper proposes a comprehensive system for career guidance and job recommendation that aims to assist individuals in finding suitable job opportunities and career development resources through the use of machine learning algorithms. Here are the key features and components of the system:
+Techido Career Guidance Using ML
+Techido Career Guidance Using ML is a web application designed to help users explore job opportunities, register their profiles, and receive career recommendations based on their skills and qualifications. Built with Flask, MongoDB, and machine learning (ML) components, it provides a user-friendly interface for job seekers to sign up, log in, search for jobs, and manage their profiles.
+Features
 
-1. **Matching Algorithm**: The system uses machine learning algorithms to match individual profiles with relevant job opportunities based on user preferences, skills, and career goals. This ensures personalized job recommendations for users.
+User Authentication: Secure sign-up and login with password hashing using bcrypt.
+Profile Registration: Users can submit their personal details (name, email, CGPA, degree, etc.) and upload resumes.
+Job Search: Search for jobs based on titles, with details like role, salary, skills, and qualifications loaded from a CSV file.
+Session Management: Tracks logged-in users with Flask sessions.
+Responsive UI: Simple, styled templates for login, signup, and other pages.
 
-2. **Data Collection and Analysis**: The system collects data on user preferences, skills, and career goals. It also analyzes current job market trends to provide up-to-date recommendations to users.
+Prerequisites
+Before running the application, ensure you have the following installed:
 
-3. **Career Guidance Resources**: In addition to job recommendations, the system offers features for career guidance, such as resources for resume building and interview preparation. This helps users improve their chances of securing their desired roles.
+Python 3.8+: Download from python.org.
+MongoDB: Install and run MongoDB Community Edition (mongodb.com).
+Git: For cloning the repository (git-scm.com).
+A web browser (e.g., Chrome, Firefox).
 
-4. **Feedback Mechanism**: A feedback mechanism is incorporated into the system to refine recommendations based on user input. This iterative process enhances the system's ability to provide accurate and relevant job suggestions over time.
+Installation
 
-5. **Privacy and Security**: The system is designed with a focus on privacy and security to ensure the confidentiality and protection of user data. Robust security measures are in place to safeguard sensitive information.
+Clone the Repository:
+git clone https://github.com/<your-username>/Techido_Career_Guidance_Using_ML.git
+cd Techido_Career_Guidance_Using_ML
 
-6. **Dynamic Platform**: The system is regularly updated to reflect changes in the job market and evolving career opportunities. This ensures that users have access to the latest information and recommendations.
 
-#Technology Stack
- Based on the information provided in the project proposal, the technology stack for the career guidance and job recommendation system may include the following components:
+Set Up a Virtual Environment (Optional but recommended):
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-1. **Programming Languages**:
-   - Python: Commonly used for machine learning tasks and backend development.
-   - HTML/CSS: For developing the user interface and web pages.
-   - JavaScript: For adding interactivity to the web application.
 
-2. **Frameworks and Libraries**:
-   - Machine Learning Libraries (e.g., Scikit-learn, TensorFlow, PyTorch): For implementing machine learning algorithms for job matching.
-   - Web Framework (e.g., Django, Flask): For building the backend of the web application.
-   - Frontend Frameworks (e.g., React, Vue.js): For creating dynamic and interactive user interfaces.
-   - Data Analysis Libraries (e.g., Pandas, NumPy): For processing and analyzing user data and market trends.
+Install Dependencies:
+pip install flask pymongo bcrypt
 
-3. **Database**:
-   - SQL Database (e.g., PostgreSQL, MySQL): For storing user profiles, job data, and feedback information.
-   - NoSQL Database (e.g., MongoDB): For handling unstructured data if needed.
 
-4. **Version Control**:
-   - Git: For version control and collaboration among team members.
+Start MongoDB:
 
-5. **Security**:
-   - Secure Socket Layer (SSL) certificates: To ensure secure data transmission.
-   - Encryption methods: To protect sensitive user information.
+Ensure MongoDB is running on the default port (localhost:27017):mongod
 
-6. **Deployment**:
-   - Cloud Services (e.g., AWS, Azure, Google Cloud): For deploying the web application.
-   - Containerization (e.g., Docker): For packaging the application and its dependencies.
 
-7. **Development Tools**:
-   - Integrated Development Environment (IDE): Such as PyCharm, Visual Studio Code.
-   - Jupyter Notebook: For prototyping and experimenting with machine learning models.
+If MongoDB is not installed, follow the MongoDB installation guide.
 
-8. **APIs**:
-   - External APIs: For fetching real-time job market data or integrating additional career resources.
 
-9. **Testing**:
-   - Testing Frameworks: Such as Pytest for unit testing to ensure code quality.
-   - Integration Testing: To test the system as a whole after components are integrated.
+Prepare Required Files:
 
-This technology stack provides a solid foundation for developing a dynamic and efficient career guidance and job recommendation system. Adapting and customizing these technologies based on the specific requirements and scalability needs of the project will be crucial for its successful implementation.  
+job_descriptions.csv: Create this file in the project root (Techido_Career_Guidance_Using_ML/) with the following content:Job Title,Role,Salary Range,skills,location,Qualifications,Experience,Company
+Software Engineer,Develop software,$80k-$120k,"Python, Java, SQL",Remote,"BS in Computer Science","2-5 years",TechCorp
+Data Scientist,Analyze data,$90k-$130k,"Python, R, Machine Learning",New York,"MS in Data Science","3-7 years",DataInc
+Web Developer,Build websites,$70k-$100k,"HTML, CSS, JavaScript",San Francisco,"BS in Computer Science","1-4 years",WebCo
 
-#Installation 
- To provide clear instructions for users to install and run the career guidance and job recommendation system from GitHub, you can include the following steps in your project's readme file:
 
-### Installation Guide:
+Static Files: Ensure static/home.png exists in the static/ folder. If missing, create a placeholder image or remove the <img> tag in templates/login.html:<div class="image-container">
+    <!-- Remove image -->
+</div>
 
-1. **Clone the Repository:**
-   Clone the project repository from GitHub using the following command:
-   ```bash
-   git clone https://github.com/your-username/your-repository.git
-   ```
 
-2. **Install Dependencies:**
-   Navigate to the project directory and install the required dependencies using a package manager like pip (for Python dependencies) or npm (for frontend dependencies):
-   ```bash
-   pip install -r requirements.txt
-   ```
+Templates: Verify all templates (login.html, signup.html, home.html, register.html, about.html, jobs.html, skills.html, profile.html, search_results.html) are in the templates/ folder. Placeholder templates are provided in the Templates section below.
 
-3. **Database Setup:**
-   Set up the database by running database migrations (if applicable) and initializing the necessary tables:
-   ```bash
-   python manage.py makemigrations
-   python manage.py migrate
-   ```
 
-4. **Run the Application:**
-   Start the web application using the appropriate command for the web framework you are using. For example, with Django, you can run the development server with:
-   ```bash
-   python manage.py runserver
-   ```
 
-5. **Access the Application:**
-   Open a web browser and go to the following URL to access the application:
-   ```
-   http://localhost:8000
-   ```
+Running the Application
 
-6. **Interact with the System:**
-   Register a user account, input your preferences, skills, and career goals to receive personalized job recommendations. Explore the career guidance features, such as resume building resources and interview preparation tips.
+Clear MongoDB Users Collection (Recommended for first run):
 
-By following these steps, users should be able to clone, install dependencies, set up the database, run the application, and interact with the career guidance and job recommendation system from your GitHub repository. Be sure to provide any additional setup instructions specific to your project in the readme file to assist users in successfully running the system on their local environment.  
+Run this script to clear invalid password data from the users collection:from pymongo import MongoClient
+client = MongoClient('mongodb://localhost:27017/')
+db = client['Db']
+users_collection = db['users']
+users_collection.delete_many({})
+print("Cleared users collection")
+
+
+
+
+Start the Flask Server:
+python app.py
+
+
+The application will run on http://localhost:5000.
+Check the terminal for logs like:Connected to MongoDB successfully!
+* Running on http://127.0.0.1:5000
+
+
+
+
+Access the Application:
+
+Open http://localhost:5000 in a web browser.
+Sign Up: Go to /signup to create a new user (e.g., username: testuser, password: testpass).
+Login: Log in with the same credentials at /.
+Explore other routes: /home, /register, /jobs, /skills, /profile, /about, /search.
+
+
+
+Usage
+
+Sign Up: Create an account at /signup with a unique username and password.
+Login: Log in at / to access protected routes.
+Register Profile: Complete your profile at /register with personal details and a resume (PDF).
+Search Jobs: Use the search bar on /home or visit /search?q=<query> (e.g., /search?q=Software) to find jobs.
+Logout: Click the logout link to end the session.
+
+Project Structure
+Techido_Career_Guidance_Using_ML/
+├── app.py                  # Main Flask application
+├── job_descriptions.csv    # CSV file with job data
+├── static/
+│   └── home.png           # Image for login page
+├── templates/
+│   ├── login.html         # Login page
+│   ├── signup.html        # Sign-up page
+│   ├── home.html          # Home page
+│   ├── register.html      # Profile registration
+│   ├── about.html         # About page
+│   ├── jobs.html          # Jobs page
+│   ├── skills.html        # Skills page
+│   ├── profile.html       # Profile page
+│   ├── search_results.html # Search results page
+└── README.md              # This file
+
+Templates
+If templates are missing, use these placeholders in the templates/ folder:
+signup.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <style>
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; background: linear-gradient(-135deg, #c850c0, #4158d0); }
+        .form { width: 300px; padding: 20px; border: 2px solid white; border-radius: 8px; color: white; }
+        input { width: 100%; padding: 8px; margin: 10px 0; }
+        button { width: 100%; padding: 10px; background: #c850c0; border: none; color: white; cursor: pointer; }
+        a { color: white; }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <h1>Sign Up</h1>
+        <form method="POST" action="/signup">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Sign Up</button>
+            <p>Already have an account? <a href="/">Login</a></p>
+        </form>
+    </div>
+</body>
+</html>
+
+home.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to Career Guidance</h1>
+    <p>Hello, {{ session.username }}!</p>
+    <a href="/register">Register</a> | <a href="/jobs">Jobs</a> | <a href="/skills">Skills</a> | <a href="/profile">Profile</a> | <a href="/about">About</a> | <a href="/logout">Logout</a>
+    <form action="/search">
+        <input type="text" name="q" placeholder="Search jobs...">
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>
+
+register.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <form method="POST" action="/register" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+        <label for="cgpa">CGPA:</label>
+        <input type="text" id="cgpa" name="cgpa" required>
+        <label for="degree">Degree:</label>
+        <input type="text" id="degree" name="degree" required>
+        <label for="stream">Stream:</label>
+        <input type="text" id="stream" name="stream" required>
+        <label for="resume">Resume (PDF):</label>
+        <input type="file" id="resume" name="resume" accept=".pdf" required>
+        <button type="submit">Register</button>
+    </form>
+    <a href="/home">Back to Home</a>
+</body>
+</html>
+
+about.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About</title>
+</head>
+<body>
+    <h1>About</h1>
+    <p>This is a career guidance platform.</p>
+    <a href="/home">Back to Home</a>
+</body>
+</html>
+
+jobs.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jobs</title>
+</head>
+<body>
+    <h1>Jobs</h1>
+    <p>List of available jobs.</p>
+    <a href="/home">Back to Home</a>
+</body>
+</html>
+
+skills.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Skills</title>
+</head>
+<body>
+    <h1>Skills</h1>
+    <p>Enter your skills for job recommendations.</p>
+    <a href="/home">Back to Home</a>
+</body>
+</html>
+
+profile.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Profile</h1>
+    <p>Your profile details.</p>
+    <a href="/home">Back to Home</a>
+</body>
+</html>
+
+search_results.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results for "{{ query }}"</h1>
+    {% if results %}
+        <ul>
+        {% for title, info in results.items() %}
+            <li>
+                <h3>{{ title }}</h3>
+                <p>Role: {{ info.role }}</p>
+                <p>Salary: {{ info.salary }}</p>
+                <p>Skills: {{ info.skills }}</p>
+                <p>Location: {{ info.location }}</p>
+                <p>Qualifications: {{ info.qualification }}</p>
+                <p>Experience: {{ info.experience }}</p>
+                <p>Company: {{ info.company }}</p>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+    <a href="/home">Back to Home</a>
+</body>
+</html>
+
+Troubleshooting
+
+Login Error: "Invalid password format in database":
+
+Cause: Invalid password hashes in MongoDB.
+Fix: Clear the users collection:from pymongo import MongoClient
+client = MongoClient('mongodb://localhost:27017/')
+db = client['Db']
+users_collection = db['users']
+users_collection.delete_many({})
+print("Cleared users collection")
+
+
+Sign up again at /signup.
+
+
+Missing job_descriptions.csv:
+
+Ensure job_descriptions.csv exists in the project root with the correct columns.
+
+
+TemplateNotFound Error:
+
+Verify all templates are in templates/. Use the placeholders above if missing.
+
+
+Static File (home.png) 404:
+
+Add home.png to static/ or remove the <img> tag in login.html.
+
+
+Chrome Error: "Unchecked runtime.lastError":
+
+Test in Incognito Mode (Ctrl+Shift+N).
+Disable extensions at chrome://extensions/.
+Clear cache at chrome://settings/clearBrowserData.
+Try Firefox or Edge.
+
+
+MongoDB Connection Error:
+
+Ensure MongoDB is running (mongod).
+Check the connection string: mongodb://localhost:27017/.
+
+
+
+Contributing
+Contributions are welcome! To contribute:
+
+Fork the repository.
+Create a new branch (git checkout -b feature-branch).
+Make changes and commit (git commit -m "Add feature").
+Push to your fork (git push origin feature-branch).
+Open a Pull Request.
 
 # Contact
    Email    - vigneshpandiya21@gmail.com
    linkedIn - https://www.linkedin.com/in/vignesh-pandiya-099b30296/
+
+
+
+![image](https://github.com/user-attachments/assets/c32ae837-fa31-4b89-afbd-9541e00c9a46)
+![image](https://github.com/user-attachments/assets/cc27f606-f6e2-442b-86d5-5cde23aa1b70)
+![image](https://github.com/user-attachments/assets/71af5142-4a22-4f64-a709-cc8924088c96)
+![image](https://github.com/user-attachments/assets/6a41a16a-0843-406c-9615-cd47ff6f4ee2)
+![image](https://github.com/user-attachments/assets/ac9418cd-392c-481c-a3c3-5f845005a7ee)
+
+
