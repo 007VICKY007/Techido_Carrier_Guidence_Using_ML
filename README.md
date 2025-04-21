@@ -40,14 +40,6 @@ Ensure MongoDB is running on the default port (localhost:27017):mongod
 If MongoDB is not installed, follow the MongoDB installation guide.
 
 
-Prepare Required Files:
-
-job_descriptions.csv: Create this file in the project root (Techido_Career_Guidance_Using_ML/) with the following content:Job Title,Role,Salary Range,skills,location,Qualifications,Experience,Company
-Software Engineer,Develop software,$80k-$120k,"Python, Java, SQL",Remote,"BS in Computer Science","2-5 years",TechCorp
-Data Scientist,Analyze data,$90k-$130k,"Python, R, Machine Learning",New York,"MS in Data Science","3-7 years",DataInc
-Web Developer,Build websites,$70k-$100k,"HTML, CSS, JavaScript",San Francisco,"BS in Computer Science","1-4 years",WebCo
-
-
 Static Files: Ensure static/home.png exists in the static/ folder. If missing, create a placeholder image or remove the <img> tag in templates/login.html:<div class="image-container">
     <!-- Remove image -->
 </div>
